@@ -4,8 +4,8 @@ const Header = () => {
       <nav>
         <ul className="flex gap-2">
           <button className="btn btn-primary">Home</button>
-          <button className="btn btn-primary">Projects</button>
           <button className="btn btn-primary">About</button>
+          <button className="btn btn-primary">Projects</button>
           <button className="btn btn-primary">Contact</button>
         </ul>
       </nav>
