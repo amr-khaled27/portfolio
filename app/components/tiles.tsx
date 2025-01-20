@@ -18,7 +18,6 @@ const Tiles = () => {
     };
 
     const handleOnClick = (index: number) => {
-      console.log(`clicked: ${index}`);
       toggle();
 
       anime({
@@ -62,7 +61,7 @@ const Tiles = () => {
     const createGrid = () => {
       wrapper.current!.innerHTML = "";
 
-      const size: number = (parent.current?.clientWidth || 0) > 800 ? 100 : 50;
+      const size: number = (parent.current?.clientWidth || 0) > 800 ? 100 : 75;
 
       columns = Math.floor((parent.current?.clientWidth || 0) / size);
       rows = Math.floor((parent.current?.clientHeight || 0) / size);
