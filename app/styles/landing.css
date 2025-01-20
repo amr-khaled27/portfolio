@@ -24,11 +24,11 @@
   animation: none;
 }
 
-#parent.toggled > #title {
+#parent.toggled ~ #title {
   opacity: 0;
 }
 
-#parent.toggled > #icon {
+#parent.toggled ~ #subtitle {
   opacity: 1;
 }
 
@@ -71,4 +71,14 @@
   pointer-events: none;
   transition: opacity 1200ms ease;
   width: 50vw;
+}
+
+#subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1200ms ease;
+  z-index: 1;
 }
