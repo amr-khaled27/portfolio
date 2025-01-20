@@ -5,6 +5,7 @@ import anime from "animejs";
 // import Reveal from "./reveal";
 
 const Landing = () => {
+  const parent = useRef<HTMLDivElement | null>(null);
   const wrapper = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -14,7 +15,7 @@ const Landing = () => {
 
     const toggle = () => {
       toggled = !toggled;
-      document.body.classList.toggle("toggled");
+      parent.current?.classList.toggle("toggled");
     };
 
     const handleOnClick = (index: number) => {
@@ -36,7 +37,15 @@ const Landing = () => {
 
       tile.classList.add("tile");
 
-      tile.style.backgroundColor = "black";
+      tile.style.backgroundColor = "#121212";
+
+      tile.onmouseover = () => {
+        tile.style.backgroundColor = "#323232";
+      };
+
+      tile.onmouseout = () => {
+        tile.style.backgroundColor = "#121212";
+      };
 
       tile.style.opacity = toggled ? "0" : "1";
 
@@ -54,10 +63,10 @@ const Landing = () => {
     const createGrid = () => {
       wrapper.current!.innerHTML = "";
 
-      const size: number = document.body.clientWidth > 800 ? 100 : 50;
+      const size: number = (parent.current?.clientWidth || 0) > 800 ? 100 : 50;
 
-      columns = Math.floor(document.body.clientWidth / size);
-      rows = Math.floor(document.body.clientHeight / size);
+      columns = Math.floor((parent.current?.clientWidth || 0) / size);
+      rows = Math.floor((parent.current?.clientHeight || 0) / size);
 
       wrapper.current?.style.setProperty("--columns", columns.toString());
       wrapper.current?.style.setProperty("--rows", rows.toString());
@@ -70,8 +79,18 @@ const Landing = () => {
     window.onresize = () => createGrid();
   }, []);
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div ref={wrapper} id="tiles" className="tiles gap-[1px]"></div>
+    <div
+      ref={parent}
+      id="parent"
+      className="flex justify-center items-center h-screen"
+    >
+      <div ref={wrapper} id="tiles" className="tiles gap-1 p-1"></div>
+      <h1
+        id="title"
+        className="centered z-10 text-white text-6xl pointer-events-none"
+      >
+        Hey There 👋
+      </h1>
     </div>
   );
 };

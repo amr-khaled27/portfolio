@@ -13,27 +13,26 @@
   }
 }
 
-body {
+#parent {
   animation: background-pan 10s linear infinite;
   background: linear-gradient(to right, var(--g1), var(--g2), var(--g1));
   background-size: 200%;
   height: 100vh;
-  margin: 0px;
 }
 
-body.toggled {
+#parent.toggled {
   animation: none;
 }
 
-body.toggled > #title {
+#parent.toggled > #title {
   opacity: 0;
 }
 
-body.toggled > #icon {
+#parent.toggled > #icon {
   opacity: 1;
 }
 
-body.toggled > #tiles > .tile:hover {
+#parent.toggled > #tiles > .tile:hover {
   opacity: 0.1 !important;
 }
 
@@ -45,8 +44,8 @@ body.toggled > #tiles > .tile:hover {
 }
 
 #tiles {
-  height: calc(100vh - 1px);
-  width: calc(100vw - 1px);
+  height: calc(100vh - 2px);
+  width: calc(100vw - 2px);
   position: relative;
   z-index: 2;
 
@@ -62,4 +61,14 @@ body.toggled > #tiles > .tile:hover {
 
 .tile:hover:before {
   background-color: rgb(30, 30, 30);
+}
+
+#title {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 6vw;
+  margin: 0px;
+  pointer-events: none;
+  transition: opacity 1200ms ease;
+  width: 50vw;
 }
