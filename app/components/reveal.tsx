@@ -34,6 +34,7 @@ const Reveal = ({ children }: RevealProps) => {
       </motion.div>
 
       <motion.div
+        className="absolute top-[4px] bottom-[4px] left-0 right-0 z-20 bg-[#66b6f3]"
         variants={{
           hidden: { left: 0 },
           visible: { left: "100%" },
@@ -41,15 +42,6 @@ const Reveal = ({ children }: RevealProps) => {
         initial="hidden"
         animate={slideControls}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        style={{
-          position: "absolute",
-          top: 4,
-          bottom: 4,
-          left: 0,
-          right: 0,
-          background: "#112233",
-          zIndex: 20,
-        }}
       />
     </div>
   );

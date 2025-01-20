@@ -8,6 +8,7 @@ export default function Home() {
       <Header />
       <Landing />
       <About />
+      <div className="h-screen"></div>
     </>
   );
 }
