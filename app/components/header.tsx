@@ -3,22 +3,26 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true);
-  const lastScrollY = useRef<number>(window.scrollY);
+  const lastScrollY = useRef<number>(window!.scrollY);
 
   const handleScroll = useCallback(() => {
-    if (window.scrollY < lastScrollY.current) {
-      setShowHeader(true);
-    } else {
-      setShowHeader(false);
+    if (typeof window !== "undefined") {
+      if (window.scrollY < lastScrollY.current) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+      lastScrollY.current = window.scrollY;
     }
-    lastScrollY.current = window.scrollY;
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, [handleScroll]);
 
   return (

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import "../styles/landing.css";
+import "../../styles/landing.css";
 import anime from "animejs";
 
 const Tiles = () => {
