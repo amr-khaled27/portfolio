@@ -12,10 +12,11 @@ const About = () => {
   });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.15]);
+  const rounded = useTransform(scrollYProgress, [0, 1], [0, 25]);
 
   return (
     <>
-      <div className="bg-slate-600 relative h-[600vh] p-4 flex justify-center">
+      <div className="bg-slate-600 relative h-[600vh] flex justify-center">
         <motion.div
           ref={ref}
           style={{
@@ -24,16 +25,17 @@ const About = () => {
             objectFit: "cover",
             backgroundPosition: "center",
             scale,
+            borderRadius: rounded,
           }}
-          className="container sticky top-4 h-[calc(100vh_-_25px)] shadow-xl flex justify-center items-center overflow-hidden mx-auto rounded-xl"
+          className="w-full h-screen sticky top-0 shadow-xl flex justify-center items-center overflow-hidden"
         >
           <OverlayCopy
             parent={ref}
-            text="For me, creating websites is not just a profession."
+            text="I love transforming concepts into functional designs. Beyond the technical, I'm drawn to the storytelling potential. For me, creating websites is not just a profession."
           />
           <motion.div
             style={{ opacity }}
-            className="absolute w-full h-full bg-black/50 z-0 left-0 top-0"
+            className="absolute w-full h-full bg-black/75 z-0 left-0 top-0"
           />
         </motion.div>
       </div>
@@ -58,12 +60,13 @@ const OverlayCopy = ({ parent, text }: OverlayCopyProps) => {
     offset: ["start start", "end 200vh"],
   });
 
+  const scrollY = useTransform(scrollYProgress, [0, 1], [150, -150]);
   const words = text.split(" ");
-
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
     <motion.div
-      style={{ opacity }}
+      style={{ opacity, y: scrollY }}
       className="z-30 p-4 h-screen flex items-center
      text-white text-3xl"
     >
@@ -90,7 +93,7 @@ type WordProps = {
 const Word: React.FC<WordProps> = ({ children, range, progress }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
-    <span className="mr-2 mt-2 relative">
+    <span className="mr-2 mt-2 relative text-4xl font-bold">
       <span className="absolute opacity-20">{children}</span>
       <motion.span style={{ opacity }} className="">
         {children}

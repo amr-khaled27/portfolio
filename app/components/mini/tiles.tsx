@@ -82,7 +82,7 @@ const Tiles = () => {
       id="parent"
       className="flex justify-center items-center h-screen"
     >
-      <div ref={wrapper} id="tiles" className="tiles gap-[1px] p-[1px]"></div>
+      <div ref={wrapper} id="tiles" className="tiles gap-[1px]"></div>
     </div>
   );
 };
