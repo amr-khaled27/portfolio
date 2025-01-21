@@ -1,34 +1,58 @@
 "use client";
+import Image from "next/image";
 import { MotionValue } from "framer-motion";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import ParallaxText from "./mini/velocity";
 
 const About = () => {
+  const container = useRef<HTMLDivElement | null>(null);
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["end end", "end start"],
   });
+
+  const { scrollYProgress: scrollYProgressContainer } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
+
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.15]);
   const rounded = useTransform(scrollYProgress, [0, 1], [0, 25]);
+  const pos = useTransform(scrollYProgressContainer, [0, 1], [100, -100]);
 
   return (
     <>
-      <div className="bg-slate-600 relative h-[600vh] flex justify-center">
+      <div
+        ref={container}
+        className="bg-slate-600 relative h-[600vh] flex justify-center"
+      >
         <motion.div
           ref={ref}
           style={{
-            backgroundImage: "url(/about.jpg)",
-            backgroundSize: "cover",
-            objectFit: "cover",
-            backgroundPosition: "center",
             scale,
             borderRadius: rounded,
           }}
           className="w-full h-screen sticky top-0 shadow-xl flex justify-center items-center overflow-hidden"
         >
+          <motion.div className="bg-red-600 absolute w-full h-full">
+            <motion.div
+              style={{
+                y: pos,
+              }}
+              className="w-full h-full top-0 absolute"
+            >
+              <Image
+                src="/about.jpg"
+                alt="Descriptive Alt Text"
+                layout="fill"
+                objectFit="cover"
+                className="w-full h-full scale-[1.35]"
+              />
+            </motion.div>
+          </motion.div>
           <OverlayCopy
             parent={ref}
             text="I love transforming concepts into functional designs. Beyond the technical, I'm drawn to the storytelling potential. For me, creating websites is not just a profession."
