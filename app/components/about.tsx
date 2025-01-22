@@ -4,6 +4,7 @@ import { MotionValue } from "framer-motion";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import ParallaxText from "./mini/velocity";
+import TechStack from "./mini/techstack";
 
 const About = () => {
   const container = useRef<HTMLDivElement | null>(null);
@@ -63,11 +64,19 @@ const About = () => {
           />
         </motion.div>
       </div>
+
       <div className="h-screen bg-slate-600 w-full flex justify-center items-center">
         <div className="flex flex-col gap-12 w-full">
           <ParallaxText baseVelocity={-5}>It&apos;s Passion</ParallaxText>
           <ParallaxText baseVelocity={5}>It&apos;s Art </ParallaxText>
         </div>
+      </div>
+
+      <div className="relative">
+        <h3 className="text-3xl text-white font-bold text-center absolute left-1/2 -translate-x-1/2 top-4">
+          My Tech Stack
+        </h3>
+        <TechStack />
       </div>
     </>
   );
@@ -81,12 +90,16 @@ type OverlayCopyProps = {
 const OverlayCopy = ({ parent, text }: OverlayCopyProps) => {
   const { scrollYProgress } = useScroll({
     target: parent,
-    offset: ["start start", "end 200vh"],
+    offset: ["start start", "end 300vh"],
   });
 
   const scrollY = useTransform(scrollYProgress, [0, 1], [150, -150]);
   const words = text.split(" ");
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  scrollYProgress.onChange((latest) => {
+    console.log("scrollYProgress:", latest);
+  });
 
   return (
     <motion.div
