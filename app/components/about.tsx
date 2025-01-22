@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import ParallaxText from "./mini/velocity";
 import TechStack from "./mini/techstack";
+import AnimateScroll from "./mini/animatescroll";
 
 const About = () => {
   const container = useRef<HTMLDivElement | null>(null);
@@ -72,11 +73,15 @@ const About = () => {
         </div>
       </div>
 
-      <div className="relative">
-        <h3 className="text-3xl text-white font-bold text-center absolute left-1/2 -translate-x-1/2 top-4">
-          My Tech Stack
-        </h3>
-        <TechStack />
+      <div className="bg-stone-600">
+        <AnimateScroll>
+          <div className="relative">
+            <h3 className="text-3xl text-white font-bold text-center absolute left-1/2 -translate-x-1/2 top-4">
+              My Tech Stack
+            </h3>
+            <TechStack />
+          </div>
+        </AnimateScroll>
       </div>
     </>
   );
