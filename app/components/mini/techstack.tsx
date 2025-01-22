@@ -1,10 +1,13 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Matter, { Engine, Render, Runner, World } from "matter-js";
+import "matter-wrap";
 
 const TechStack = () => {
   const tickness: number = 200;
   const scene = useRef<HTMLDivElement>(null);
+
+  Matter.use("matter-wrap");
 
   useEffect(() => {
     const engine = Engine.create();
@@ -42,12 +45,12 @@ const TechStack = () => {
       tickness
     );
 
-    const leftWall = createWall(
-      -tickness / 2,
-      scene.current!.clientHeight / 2,
-      tickness,
-      scene.current!.clientHeight
-    );
+    // const leftWall = createWall(
+    //   -tickness / 2,
+    //   scene.current!.clientHeight / 2,
+    //   tickness,
+    //   scene.current!.clientHeight
+    // );
 
     const rightWall = createWall(
       scene.current!.clientWidth + tickness / 2,
@@ -56,20 +59,45 @@ const TechStack = () => {
       scene.current!.clientHeight
     );
 
-    World.add(engine.world, [ground, ceiling, leftWall, rightWall]);
+    const boxes: Matter.Body[] = [];
 
     for (let i = 0; i < 5; i++) {
-      const box = Matter.Bodies.rectangle(200, (i + 2) * 60, 300, 60, {
-        chamfer: { radius: 30 },
-        render: {
-          fillStyle: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-          sprite: {
-            texture: "html.png",
-            xScale: 1,
-            yScale: 1,
+      const box = Matter.Bodies.rectangle(
+        Math.random() * scene.current!.clientWidth,
+        Math.random() * scene.current!.clientHeight,
+        300,
+        60,
+        {
+          angle: Math.random() * Math.PI * 2,
+          frictionAir: 0.05,
+          chamfer: { radius: 30 },
+          plugin: {
+            wrap: {
+              min: {
+                x: 0,
+                y: 0,
+              },
+              max: {
+                x: scene.current!.clientWidth,
+                y: scene.current!.clientHeight,
+              },
+            },
           },
-        },
-      });
+          render: {
+            fillStyle: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+            sprite: {
+              texture: "html.png",
+              xScale: 1,
+              yScale: 1,
+            },
+          },
+        }
+      );
+
+      boxes.push(box);
+
+      console.log(boxes);
+
       World.add(engine.world, box);
     }
 
@@ -95,6 +123,23 @@ const TechStack = () => {
       Matter.Body.setPosition(ceiling, {
         x: scene.current.clientWidth / 2,
         y: -tickness / 2,
+      });
+
+      boxes.forEach((box) => {
+        Matter.Body.set(box, {
+          plugin: {
+            wrap: {
+              min: {
+                x: 0,
+                y: 0,
+              },
+              max: {
+                x: scene.current!.clientWidth,
+                y: scene.current!.clientHeight,
+              },
+            },
+          },
+        });
       });
     };
 
