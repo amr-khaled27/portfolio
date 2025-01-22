@@ -22,8 +22,8 @@ const TechStack = () => {
       },
     });
 
-    engine.world.gravity.y = 0.3;
-    engine.world.gravity.x = 0.3;
+    engine.world.gravity.y = 0;
+    engine.world.gravity.x = 0;
 
     const createWall = (
       x: number,
@@ -71,8 +71,7 @@ const TechStack = () => {
         300,
         60,
         {
-          friction: 0,
-          frictionAir: 0.1,
+          frictionAir: 0.01,
           angle: (Math.random() - 0.5) * (Math.PI / 4),
           chamfer: { radius: 30 },
           plugin: {
@@ -103,6 +102,40 @@ const TechStack = () => {
       World.add(engine.world, box);
     }
 
+    const particles: Matter.Body[] = [];
+
+    for (let i = 0; i < 50; i++) {
+      const particle = Matter.Bodies.circle(
+        Math.random() * scene.current!.clientWidth,
+        Math.random() * scene.current!.clientHeight,
+        5,
+        {
+          frictionAir: 0.02,
+          render: {
+            fillStyle: "transparent",
+            strokeStyle: `#${Math.floor(Math.random() * 16777215).toString(
+              16
+            )}`,
+            lineWidth: 2,
+          },
+          plugin: {
+            wrap: {
+              min: {
+                x: 0,
+                y: 0,
+              },
+              max: {
+                x: scene.current!.clientWidth,
+                y: scene.current!.clientHeight,
+              },
+            },
+          },
+        }
+      );
+      particles.push(particle);
+      World.add(engine.world, particle);
+    }
+
     const runner = Runner.create();
     Runner.run(runner, engine);
     Render.run(render);
@@ -129,6 +162,23 @@ const TechStack = () => {
 
       boxes.forEach((box) => {
         Matter.Body.set(box, {
+          plugin: {
+            wrap: {
+              min: {
+                x: 0,
+                y: 0,
+              },
+              max: {
+                x: scene.current!.clientWidth,
+                y: scene.current!.clientHeight,
+              },
+            },
+          },
+        });
+      });
+
+      particles.forEach((particle) => {
+        Matter.Body.set(particle, {
           plugin: {
             wrap: {
               min: {
