@@ -1,6 +1,6 @@
 :root {
-  --g1: #339def;
-  --g2: #00508d;
+  --g1: #002642;
+  --g2: #6b001b;
 }
 
 @keyframes background-pan {
@@ -48,7 +48,6 @@
   width: 100vw;
   position: relative;
   z-index: 2;
-
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
   grid-template-rows: repeat(var(--rows), 1fr);
@@ -66,17 +65,13 @@
 #title {
   color: white;
   font-family: "Rubik", sans-serif;
-  font-size: 6vw;
   margin: 0px;
   pointer-events: none;
   transition: opacity 1200ms ease;
-  width: 50vw;
+  line-height: 50px;
 }
 
 #subtitle {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 2rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 1200ms ease;

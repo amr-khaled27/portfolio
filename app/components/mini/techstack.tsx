@@ -22,6 +22,9 @@ const TechStack = () => {
       },
     });
 
+    engine.world.gravity.y = 0.3;
+    engine.world.gravity.x = 0.3;
+
     const createWall = (
       x: number,
       y: number,
@@ -68,8 +71,9 @@ const TechStack = () => {
         300,
         60,
         {
-          angle: Math.random() * Math.PI * 2,
-          frictionAir: 0.05,
+          friction: 0,
+          frictionAir: 0.1,
+          angle: (Math.random() - 0.5) * (Math.PI / 4),
           chamfer: { radius: 30 },
           plugin: {
             wrap: {
@@ -95,8 +99,6 @@ const TechStack = () => {
       );
 
       boxes.push(box);
-
-      console.log(boxes);
 
       World.add(engine.world, box);
     }
@@ -153,6 +155,8 @@ const TechStack = () => {
         render: { visible: false },
       },
     });
+
+    render.canvas.style.cursor = "grab";
 
     World.add(engine.world, mouseConstraint);
 

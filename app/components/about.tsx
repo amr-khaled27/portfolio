@@ -97,10 +97,6 @@ const OverlayCopy = ({ parent, text }: OverlayCopyProps) => {
   const words = text.split(" ");
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  scrollYProgress.onChange((latest) => {
-    console.log("scrollYProgress:", latest);
-  });
-
   return (
     <motion.div
       style={{ opacity, y: scrollY }}
