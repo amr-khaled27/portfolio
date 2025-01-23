@@ -1,10 +1,35 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Matter, { Engine, Render, Runner, World } from "matter-js";
+import Matter, {
+  Bodies,
+  Common,
+  Engine,
+  Render,
+  Runner,
+  World,
+} from "matter-js";
 import "matter-wrap";
 
-const TechStack = () => {
-  const tickness: number = 200;
+interface TechStackProps {
+  numberOfPolygons?: number;
+  options: {
+    wrap: boolean;
+    walled: boolean;
+  };
+  technology?: {
+    width: number;
+    height: number;
+    radius: number;
+    pngLocation: string;
+  }[];
+}
+
+const TechStack = ({
+  numberOfPolygons = 0,
+  options: { wrap, walled },
+  technology,
+}: TechStackProps) => {
+  const tickness: number = 400;
   const scene = useRef<HTMLDivElement>(null);
 
   Matter.use("matter-wrap");
@@ -37,23 +62,23 @@ const TechStack = () => {
     const ground = createWall(
       scene.current!.clientWidth / 2,
       scene.current!.clientHeight + tickness / 2,
-      scene.current!.clientWidth,
+      10000,
       tickness
     );
 
     const ceiling = createWall(
       scene.current!.clientWidth / 2,
       -tickness / 2,
-      scene.current!.clientWidth,
+      10000,
       tickness
     );
 
-    // const leftWall = createWall(
-    //   -tickness / 2,
-    //   scene.current!.clientHeight / 2,
-    //   tickness,
-    //   scene.current!.clientHeight
-    // );
+    const leftWall = createWall(
+      -tickness / 2,
+      scene.current!.clientHeight / 2,
+      tickness,
+      scene.current!.clientHeight
+    );
 
     const rightWall = createWall(
       scene.current!.clientWidth + tickness / 2,
@@ -62,93 +87,108 @@ const TechStack = () => {
       scene.current!.clientHeight
     );
 
+    if (walled) {
+      World.add(engine.world, [ground, ceiling, leftWall, rightWall]);
+    }
+
     const boxes: Matter.Body[] = [];
 
-    for (let i = 0; i < 5; i++) {
-      const box = Matter.Bodies.rectangle(
-        Math.random() * scene.current!.clientWidth,
-        Math.random() * scene.current!.clientHeight,
-        300,
-        60,
-        {
-          frictionAir: 0.01,
-          angle: (Math.random() - 0.5) * (Math.PI / 4),
-          chamfer: { radius: 30 },
-          plugin: {
-            wrap: {
-              min: {
-                x: 0,
-                y: 0,
-              },
-              max: {
-                x: scene.current!.clientWidth,
-                y: scene.current!.clientHeight,
+    if (technology) {
+      technology.forEach((tech) => {
+        const box = Matter.Bodies.rectangle(
+          Math.random() * scene.current!.clientWidth,
+          Math.random() * scene.current!.clientHeight,
+          tech.width,
+          tech.height,
+          {
+            angle: (Math.random() - 0.5) * (Math.PI / 4),
+            chamfer: { radius: tech.radius },
+            plugin: wrap
+              ? {
+                  wrap: {
+                    min: {
+                      x: 0,
+                      y: 0,
+                    },
+                    max: {
+                      x: scene.current!.clientWidth,
+                      y: scene.current!.clientHeight,
+                    },
+                  },
+                }
+              : "",
+            render: {
+              sprite: {
+                texture: tech.pngLocation,
+                xScale: 1,
+                yScale: 1,
               },
             },
-          },
-          render: {
-            fillStyle: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            sprite: {
-              texture: "html.png",
-              xScale: 1,
-              yScale: 1,
-            },
-          },
-        }
-      );
+          }
+        );
 
-      boxes.push(box);
-
-      World.add(engine.world, box);
+        boxes.push(box);
+        World.add(engine.world, box);
+      });
     }
 
-    const particles: Matter.Body[] = [];
+    const polygons: Matter.Body[] = [];
 
-    for (let i = 0; i < 50; i++) {
-      const particle = Matter.Bodies.circle(
-        Math.random() * scene.current!.clientWidth,
-        Math.random() * scene.current!.clientHeight,
-        5,
-        {
-          frictionAir: 0.02,
-          render: {
-            fillStyle: "transparent",
-            strokeStyle: `#${Math.floor(Math.random() * 16777215).toString(
-              16
-            )}`,
-            lineWidth: 2,
-          },
-          plugin: {
-            wrap: {
-              min: {
-                x: 0,
-                y: 0,
-              },
-              max: {
-                x: scene.current!.clientWidth,
-                y: scene.current!.clientHeight,
-              },
+    if (numberOfPolygons > 0) {
+      for (let i = 0; i < numberOfPolygons; i++) {
+        const polygon = Bodies.polygon(
+          Common.random(0, render.options.width),
+          Common.random(0, render.options.height),
+          Common.random(1, 5),
+          Common.random() > 0.9 ? Common.random(15, 25) : Common.random(5, 10),
+
+          {
+            force: {
+              x: (Math.random() - 0.5) * 0.001,
+              y: (Math.random() - 0.5) * 0.001,
             },
-          },
-        }
-      );
-      particles.push(particle);
-      World.add(engine.world, particle);
-    }
+            render: {
+              fillStyle: Common.choose([
+                "#ff4e00",
+                "#ff8c00",
+                "#ffb700",
+                "#ffd700",
+                "#ffea00",
+                "#ffff00",
+                "#d4ff00",
+                "#a3ff00",
+                "#6bff00",
+                "#00ff00",
+              ]),
+            },
+            friction: 0,
+            frictionAir: 0,
+            plugin: wrap
+              ? {
+                  wrap: {
+                    min: {
+                      x: 0,
+                      y: 0,
+                    },
+                    max: {
+                      x: scene.current!.clientWidth,
+                      y: scene.current!.clientHeight,
+                    },
+                  },
+                }
+              : "",
+          }
+        );
 
-    const runner = Runner.create();
-    Runner.run(runner, engine);
-    Render.run(render);
+        polygons.push(polygon);
+        World.add(engine.world, polygon);
+      }
+    }
 
     const handleResize = () => {
       if (!scene.current) return;
       render.canvas.width = scene.current.clientWidth;
       render.canvas.height = scene.current.clientHeight;
-
-      Matter.Body.setPosition(ground, {
-        x: scene.current.clientWidth / 2,
-        y: scene.current.clientHeight + tickness / 2,
-      });
 
       Matter.Body.setPosition(rightWall, {
         x: scene.current.clientWidth + tickness / 2,
@@ -177,8 +217,8 @@ const TechStack = () => {
         });
       });
 
-      particles.forEach((particle) => {
-        Matter.Body.set(particle, {
+      polygons.forEach((polygon) => {
+        Matter.Body.set(polygon, {
           plugin: {
             wrap: {
               min: {
@@ -195,9 +235,14 @@ const TechStack = () => {
       });
     };
 
+    const runner = Runner.create();
+    Runner.run(runner, engine);
+    Render.run(render);
+
     window.addEventListener("resize", handleResize);
 
     const mouse = Matter.Mouse.create(render.canvas);
+
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse: mouse,
       constraint: {
@@ -205,8 +250,6 @@ const TechStack = () => {
         render: { visible: false },
       },
     });
-
-    render.canvas.style.cursor = "grab";
 
     World.add(engine.world, mouseConstraint);
 
@@ -219,10 +262,8 @@ const TechStack = () => {
       render.textures = {};
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-  return (
-    <div className="h-screen overflow-hidden bg-[#1E1E1E]" ref={scene}></div>
-  );
+  }, [numberOfPolygons, technology, walled, wrap]);
+  return <div className="h-screen overflow-hidden" ref={scene}></div>;
 };
 
 export default TechStack;
