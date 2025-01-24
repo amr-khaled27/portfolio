@@ -6,7 +6,6 @@ import { useRef } from "react";
 import ParallaxText from "./mini/velocity";
 import TechStack from "./mini/techstack";
 import AnimateScroll from "./mini/animatescroll";
-import AfterTech from "./mini/aftertech";
 
 type Technology = {
   width: number;
@@ -93,8 +92,11 @@ const About = () => {
       <div className="bg-stone-600">
         <AnimateScroll>
           <div className="relative w-screen h-screen">
-            <h3 className="text-3xl text-white p-4 z-30 bg-black/30 w-screen font-bold text-center absolute left-1/2 -translate-x-1/2 pointer-events-none">
+            <h3 className="text-4xl text-white p-4 flex flex-col z-30 bg-black/50 w-screen font-bold text-center absolute left-1/2 -translate-x-1/2 pointer-events-none">
               My Tech Stack
+              <span className="text-lg font-normal">
+                Fell free to play around with them!
+              </span>
             </h3>
             <div className="absolute left-0 top-0 w-screen h-screen bg-[#1E1E1E]">
               <TechStack
@@ -112,8 +114,6 @@ const About = () => {
           </div>
         </AnimateScroll>
       </div>
-
-      <AfterTech />
     </>
   );
 };
