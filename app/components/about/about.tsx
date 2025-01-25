@@ -3,7 +3,7 @@ import Image from "next/image";
 import { MotionValue } from "framer-motion";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import ParallaxText from "./velocity";
+import ParallaxSection from "./parallaxSection";
 import TechStack from "./techstack";
 import AnimateScroll from "../mini/animatescroll";
 
@@ -20,6 +20,42 @@ const technologies: Technology[] = [
     height: 60,
     radius: 30,
     pngLocation: "html.png",
+  },
+  {
+    width: 150,
+    height: 150,
+    radius: 30,
+    pngLocation: "css.png",
+  },
+  {
+    width: 150,
+    height: 150,
+    radius: 30,
+    pngLocation: "js.png",
+  },
+  {
+    width: 160,
+    height: 160,
+    radius: 80,
+    pngLocation: "react.png",
+  },
+  {
+    width: 150,
+    height: 150,
+    radius: 0,
+    pngLocation: "ts.png",
+  },
+  {
+    width: 300,
+    height: 60,
+    radius: 30,
+    pngLocation: "tailwind.png",
+  },
+  {
+    width: 275,
+    height: 75,
+    radius: 10,
+    pngLocation: "nextjs.png",
   },
 ];
 
@@ -82,14 +118,7 @@ const About = () => {
         </motion.div>
       </div>
 
-      <div className="h-screen bg-slate-600 w-full flex justify-center items-center">
-        <div className="flex flex-col gap-12 w-full relative">
-          <span className="w-full h-3 bg-white absolute left-0 -top-6"></span>
-          <ParallaxText baseVelocity={-5}>It&apos;s Passion</ParallaxText>
-          <ParallaxText baseVelocity={5}>It&apos;s Art </ParallaxText>
-          <span className="w-full h-3 bg-white absolute left-0 -bottom-6"></span>
-        </div>
-      </div>
+      <ParallaxSection />
 
       <div className="bg-stone-600">
         <AnimateScroll>

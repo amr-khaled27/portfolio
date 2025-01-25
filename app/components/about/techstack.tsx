@@ -22,12 +22,14 @@ interface TechStackProps {
     radius: number;
     pngLocation: string;
   }[];
+  style?: string;
 }
 
 const TechStack = ({
   numberOfPolygons = 0,
   options: { wrap, walled },
   technology,
+  style,
 }: TechStackProps) => {
   const tickness: number = 400;
   const scene = useRef<HTMLDivElement>(null);
@@ -101,7 +103,7 @@ const TechStack = ({
           tech.width,
           tech.height,
           {
-            angle: (Math.random() - 0.5) * (Math.PI / 4),
+            angle: (Math.random() - 0.5) * (Math.PI / 8),
             chamfer: { radius: tech.radius },
             plugin: wrap
               ? {
@@ -117,6 +119,7 @@ const TechStack = ({
                   },
                 }
               : "",
+            frictionAir: 0,
             render: {
               sprite: {
                 texture: tech.pngLocation,
@@ -189,6 +192,11 @@ const TechStack = ({
       if (!scene.current) return;
       render.canvas.width = scene.current.clientWidth;
       render.canvas.height = scene.current.clientHeight;
+
+      Matter.Body.setPosition(ground, {
+        x: scene.current.clientWidth / 2,
+        y: scene.current.clientHeight + tickness / 2,
+      });
 
       Matter.Body.setPosition(rightWall, {
         x: scene.current.clientWidth + tickness / 2,
@@ -263,7 +271,7 @@ const TechStack = ({
       window.removeEventListener("resize", handleResize);
     };
   }, [numberOfPolygons, technology, walled, wrap]);
-  return <div className="h-screen" ref={scene}></div>;
+  return <div className={`h-screen ${style}`} ref={scene}></div>;
 };
 
 export default TechStack;

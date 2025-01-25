@@ -14,9 +14,10 @@ import "../../styles/velocity.css";
 interface ParallaxProps {
   children: string;
   baseVelocity: number;
+  style?: string;
 }
 
-function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
+function ParallaxText({ children, baseVelocity = 100, style }: ParallaxProps) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -47,7 +48,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 
   return (
     <div className="parallax text-white">
-      <motion.div className="scroller" style={{ x }}>
+      <motion.div className={`scroller ${style}`} style={{ x }}>
         <span>{children} </span>
         <span>{children} </span>
         <span>{children} </span>

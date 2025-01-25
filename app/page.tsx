@@ -3,6 +3,7 @@
 import Landing from "./components/landing/landing";
 import About from "./components/about/about";
 import Projects from "./components/projects/projects";
+import Contact from "./components/contact/contact";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <Landing />
       <About />
       <Projects />
-      <div className="h-screen"></div>
+      <Contact />
     </>
   );
 }
