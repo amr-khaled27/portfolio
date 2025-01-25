@@ -33,7 +33,7 @@ const About = () => {
 
   const { scrollYProgress: scrollYProgressContainer } = useScroll({
     target: container,
-    offset: ["start end", "end start"],
+    offset: ["start end", "end end"],
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
@@ -55,7 +55,7 @@ const About = () => {
           }}
           className="w-full h-screen sticky top-0 shadow-xl flex justify-center items-center overflow-hidden"
         >
-          <motion.div className="bg-red-600 absolute w-full h-full">
+          <motion.div className="absolute w-full h-full">
             <motion.div
               style={{
                 y: pos,
@@ -72,7 +72,7 @@ const About = () => {
             </motion.div>
           </motion.div>
           <OverlayCopy
-            parent={ref}
+            progress={scrollYProgressContainer}
             text="I love transforming concepts into functional designs. Beyond the technical, I'm drawn to the storytelling potential. For me, creating websites is not just a profession."
           />
           <motion.div
@@ -95,7 +95,7 @@ const About = () => {
             <h3 className="text-4xl text-white p-4 flex flex-col z-30 bg-black/50 w-screen font-bold text-center absolute left-1/2 -translate-x-1/2 pointer-events-none">
               My Tech Stack
               <span className="text-lg font-normal">
-                Fell free to play around with them!
+                Feel free to play around with them!
               </span>
             </h3>
             <div className="absolute left-0 top-0 w-screen h-screen bg-[#1E1E1E]">
@@ -119,19 +119,15 @@ const About = () => {
 };
 
 type OverlayCopyProps = {
-  parent: React.RefObject<HTMLDivElement | null>;
   text: string;
+  progress: MotionValue<number>;
 };
 
-const OverlayCopy = ({ parent, text }: OverlayCopyProps) => {
-  const { scrollYProgress } = useScroll({
-    target: parent,
-    offset: ["start start", "end 300vh"],
-  });
+const OverlayCopy = ({ text, progress }: OverlayCopyProps) => {
+  const scrollY = useTransform(progress, [0, 1], [150, -150]);
+  const opacity = useTransform(progress, [0, 1], [0, 1]);
 
-  const scrollY = useTransform(scrollYProgress, [0, 1], [150, -150]);
   const words = text.split(" ");
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <motion.div
@@ -144,7 +140,7 @@ const OverlayCopy = ({ parent, text }: OverlayCopyProps) => {
           const start = i / words.length;
           const end = start + 1 / words.length;
           return (
-            <Word key={i} range={[start, end]} progress={scrollYProgress}>
+            <Word key={i} range={[start, end]} progress={progress}>
               {word}
             </Word>
           );
@@ -153,6 +149,7 @@ const OverlayCopy = ({ parent, text }: OverlayCopyProps) => {
     </motion.div>
   );
 };
+
 type WordProps = {
   children: React.ReactNode;
   range: [number, number];

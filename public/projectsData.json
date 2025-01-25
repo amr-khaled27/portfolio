@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Gemini Chat",
+    "description": "A cli tool to chat with gemini from the comfort of your terminal!",
+    "image": "/gemini.png",
+    "link": "github.com",
+    "tags": ["tools", "cli", "typescript"]
+  }
+]
