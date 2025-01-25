@@ -33,7 +33,7 @@ const About = () => {
 
   const { scrollYProgress: scrollYProgressContainer } = useScroll({
     target: container,
-    offset: ["start end", "end end"],
+    offset: ["start start", "end end"],
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
@@ -125,13 +125,12 @@ type OverlayCopyProps = {
 
 const OverlayCopy = ({ text, progress }: OverlayCopyProps) => {
   const scrollY = useTransform(progress, [0, 1], [150, -150]);
-  const opacity = useTransform(progress, [0, 1], [0, 1]);
 
   const words = text.split(" ");
 
   return (
     <motion.div
-      style={{ opacity, y: scrollY }}
+      style={{ y: scrollY }}
       className="z-30 p-4 h-screen flex items-center
      text-white text-3xl"
     >

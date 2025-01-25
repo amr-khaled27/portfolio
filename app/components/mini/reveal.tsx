@@ -4,9 +4,10 @@ import { motion, useInView, useAnimation } from "motion/react";
 
 interface RevealProps {
   children: React.ReactNode;
+  style?: string;
 }
 
-const Reveal = ({ children }: RevealProps) => {
+const Reveal = ({ children, style = "" }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false });
   const controls = useAnimation();
@@ -20,7 +21,7 @@ const Reveal = ({ children }: RevealProps) => {
   }, [controls, isInView, slideControls]);
 
   return (
-    <div ref={ref} className="relative overflow-hidden">
+    <div ref={ref} className={`relative w-fit overflow-hidden ${style}`}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },

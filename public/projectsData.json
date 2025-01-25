@@ -3,7 +3,50 @@
     "title": "Gemini Chat",
     "description": "A cli tool to chat with gemini from the comfort of your terminal!",
     "image": "/gemini.png",
-    "link": "github.com",
+    "link": "https://github.com/amr-khaled27/gemini-cli",
     "tags": ["tools", "cli", "typescript"]
+  },
+  {
+    "title": "OH Clone",
+    "description": "A web design project that replicates the OH website with modern design principles and responsive layouts. Collaborative effort with Ayman Soliman.",
+    "image": "/oh.png",
+    "link": "https://github.com/ayman-soliman-1783/OH",
+    "tags": ["web design", "clone", "collaboration"],
+    "demo": "https://ayman-soliman-1783.github.io/OH/index.html",
+    "collaborator": {
+      "name": "Ayman Soliman",
+      "link": "https://github.com/ayman-soliman-1783"
+    }
+  },
+  {
+    "title": "Downloads Organizer Tool",
+    "description": "An automation tool to organize your downloads on Windows folder using Python.",
+    "image": "/downloads-organizer.png",
+    "link": "https://github.com/amr-khaled27/downloads-organizer-tool",
+    "tags": ["python", "automation", "tools"]
+  },
+  {
+    "title": "Calculator App",
+    "description": "A calculator application built using native technology.",
+    "image": "/calculator.png",
+    "link": "https://amr-khaled27.github.io/calculator/",
+    "tags": ["native", "calculator", "web development"],
+    "demo": "https://amr-khaled27.github.io/calculator/"
+  },
+  {
+    "title": "Sultan Gym",
+    "description": "A gym landing page that showcases the facilities, membership plans, and trainers available at Sultan Gym.",
+    "image": "/sultan-gym.png",
+    "link": "https://github.com/amr-khaled27/sultan_gym",
+    "tags": ["web development", "tailwindcss", "landing page"],
+    "demo": "https://amr-khaled27.github.io/sultan_gym/"
+  },
+  {
+    "title": "Weather App",
+    "description": "A weather application built using TypeScript to provide current weather information.",
+    "image": "/weather-app.png",
+    "link": "https://github.com/amr-khaled27/weather_app",
+    "tags": ["typescript", "weather", "api"],
+    "demo": "https://amr-khaled27.github.io/weather_app/"
   }
 ]
