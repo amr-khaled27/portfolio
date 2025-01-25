@@ -9,7 +9,7 @@ interface RevealProps {
 
 const Reveal = ({ children, style = "" }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
   const slideControls = useAnimation();
 

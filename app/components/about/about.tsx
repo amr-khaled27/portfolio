@@ -3,9 +3,9 @@ import Image from "next/image";
 import { MotionValue } from "framer-motion";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import ParallaxText from "./mini/velocity";
-import TechStack from "./mini/techstack";
-import AnimateScroll from "./mini/animatescroll";
+import ParallaxText from "./velocity";
+import TechStack from "./techstack";
+import AnimateScroll from "../mini/animatescroll";
 
 type Technology = {
   width: number;
@@ -83,9 +83,11 @@ const About = () => {
       </div>
 
       <div className="h-screen bg-slate-600 w-full flex justify-center items-center">
-        <div className="flex flex-col gap-12 w-full">
+        <div className="flex flex-col gap-12 w-full relative">
+          <span className="w-full h-3 bg-white absolute left-0 -top-6"></span>
           <ParallaxText baseVelocity={-5}>It&apos;s Passion</ParallaxText>
           <ParallaxText baseVelocity={5}>It&apos;s Art </ParallaxText>
+          <span className="w-full h-3 bg-white absolute left-0 -bottom-6"></span>
         </div>
       </div>
 
@@ -94,17 +96,17 @@ const About = () => {
           <div className="relative w-screen h-screen">
             <h3 className="text-4xl text-white p-4 flex flex-col z-30 bg-black/50 w-screen font-bold text-center absolute left-1/2 -translate-x-1/2 pointer-events-none">
               My Tech Stack
-              <span className="text-lg font-normal">
+              <span className="text-lg font-normal hidden sm:inline">
                 Feel free to play around with them!
               </span>
             </h3>
-            <div className="absolute left-0 top-0 w-screen h-screen bg-[#1E1E1E]">
+            <div className="absolute left-0 top-0 w-screen pointer-events-none sm:pointer-events-auto bg-[#1E1E1E]">
               <TechStack
                 numberOfPolygons={50}
                 options={{ wrap: true, walled: false }}
               />
             </div>
-            <div className="absolute left-0 top-0 w-screen h-screen z-20">
+            <div className="absolute left-0 top-0 w-screen pointer-events-none sm:pointer-events-auto h-screen z-20">
               <TechStack
                 numberOfPolygons={0}
                 options={{ wrap: false, walled: true }}

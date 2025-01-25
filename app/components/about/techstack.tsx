@@ -263,7 +263,7 @@ const TechStack = ({
       window.removeEventListener("resize", handleResize);
     };
   }, [numberOfPolygons, technology, walled, wrap]);
-  return <div className="h-screen overflow-hidden" ref={scene}></div>;
+  return <div className="h-screen" ref={scene}></div>;
 };
 
 export default TechStack;

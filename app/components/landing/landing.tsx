@@ -1,5 +1,5 @@
-import "../styles/landing.css";
-import Tiles from "./mini/tiles";
+import "../../styles/landing.css";
+import Tiles from "./tiles";
 
 const Landing = () => {
   return (

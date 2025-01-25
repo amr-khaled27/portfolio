@@ -1,67 +1,22 @@
-"use Client";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Reveal from "./mini/reveal";
+import {
+  faExternalLink,
+  faGlobeAfrica,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
-import { faGlobeAfrica } from "@fortawesome/free-solid-svg-icons/faGlobeAfrica";
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  tags: string[];
-  demo?: string;
-  collaborator?: {
-    name: string;
-    link: string;
-  };
-}
-
-const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  useEffect(() => {
-    fetch("/projectsData.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProjects(data);
-      });
-  }, []);
-
-  return (
-    <motion.div>
-      <motion.div className="bg-stone-600 p-4 flex flex-col justify-center text-white text-center">
-        <motion.div className="flex justify-center">
-          <p className="flex flex-col gap-1 pointer-events-none select-none text-4xl font-bold">
-            Projects
-            <motion.span
-              transition={{ type: "spring", stiffness: 100, damping: 10 }}
-              className="h-1 bg-white rounded-full"
-            ></motion.span>
-          </p>
-        </motion.div>
-
-        <motion.div className="mt-4 container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
-          {projects.map((project, i) => {
-            return <ProjectCard project={project} key={i} />;
-          })}
-        </motion.div>
-      </motion.div>
-    </motion.div>
-  );
-};
+import { motion } from "motion/react";
+import Reveal from "../mini/reveal";
+import Image from "next/image";
+import { ProjectInterface } from "./projects";
 
 type ProjectCardProps = {
-  project: Project;
+  project: ProjectInterface;
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <motion.div className="bg-stone-800 rounded-3xl transition p-4 flex flex-col gap-4">
       <div className="w-full h-full ">
-        <div className="rounded-3xl relative">
+        <div className="rounded-3xl relative shadow-xl">
           <Reveal style="w-full h-full overflow-hidden">
             <Image
               src={project.image}
@@ -148,4 +103,4 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   );
 };
 
-export default Projects;
+export default ProjectCard;
