@@ -3,7 +3,10 @@ import Reveal from "../mini/reveal";
 
 const Contact = () => {
   return (
-    <div className="h-screen bg-blue-60 relative flex items-center">
+    <div
+      id="contact"
+      className="h-screen bg-blue-60 relative flex items-center"
+    >
       <TechStack
         numberOfPolygons={50}
         options={{ walled: false, wrap: true }}

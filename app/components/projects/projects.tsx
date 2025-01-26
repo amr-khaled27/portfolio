@@ -29,7 +29,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <motion.div>
+    <motion.div id="projects">
       <motion.div className="bg-colors-background p-4 flex flex-col justify-center text-white text-center">
         <motion.div className="flex justify-center">
           <p className="flex flex-col gap-1 pointer-events-none select-none text-4xl font-bold">
