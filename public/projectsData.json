@@ -22,7 +22,7 @@
   {
     "title": "Downloads Organizer Tool",
     "description": "An automation tool to organize your downloads on Windows folder using Python.",
-    "image": "/downloads-organizer.png",
+    "image": "/pyOrganizer.png",
     "link": "https://github.com/amr-khaled27/downloads-organizer-tool",
     "tags": ["python", "automation", "tools"]
   },
@@ -48,6 +48,6 @@
     "image": "/weather-app.png",
     "link": "https://github.com/amr-khaled27/weather_app",
     "tags": ["typescript", "weather", "api"],
-    "demo": "https://amr-khaled27.github.io/weather_app/"
+    "demo": "https://glittering-gnome-c30c87.netlify.app/"
   }
 ]
