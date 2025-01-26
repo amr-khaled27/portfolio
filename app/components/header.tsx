@@ -6,10 +6,30 @@ const Header = () => {
     >
       <nav>
         <ul className="flex gap-2">
-          <button className="btn btn-primary">Home</button>
-          <button className="btn btn-primary">About</button>
-          <button className="btn btn-primary">Projects</button>
-          <button className="btn btn-primary">Contact</button>
+          <a
+            href="#landing"
+            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 hover:scale-95 hover:bg-white/75 text-black font-thin"
+          >
+            Home
+          </a>
+          <a
+            href="#about"
+            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 hover:scale-95 hover:bg-white/75 text-black font-thin"
+          >
+            About
+          </a>
+          <a
+            href="#projects"
+            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 hover:scale-95 hover:bg-white/75 text-black font-thin"
+          >
+            Projects
+          </a>
+          <a
+            href="#contact"
+            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 hover:scale-95 hover:bg-white/75 text-black font-thin"
+          >
+            Contact
+          </a>
         </ul>
       </nav>
     </header>
