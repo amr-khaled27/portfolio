@@ -32,7 +32,25 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <div className="col-span-2 text-start flex flex-col gap-4 justify-between h-full">
         <div>
           <Reveal>
-            <p className="text-3xl font-semibold">{project.title}</p>
+            <div className="flex gap-2 items-center">
+              <p className="text-3xl font-semibold">{project.title}</p>
+              {project.collaborator && (
+                <span className="py-1 px-2 h-fit rounded-md bg-slate-500">
+                  collabration
+                </span>
+              )}
+              {project.mainTags &&
+                project.mainTags.map((tag, i) => {
+                  return (
+                    <span
+                      className="py-1 px-2 h-fit rounded-md bg-slate-600"
+                      key={i}
+                    >
+                      {tag}
+                    </span>
+                  );
+                })}
+            </div>
           </Reveal>
           <Reveal>
             <p className="text-base">{project.description}</p>

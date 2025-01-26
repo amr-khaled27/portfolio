@@ -8,6 +8,7 @@ export interface ProjectInterface {
   description: string;
   image: string;
   link: string;
+  mainTags: string[];
   tags: string[];
   demo?: string;
   collaborator?: {

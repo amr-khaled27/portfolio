@@ -35,13 +35,15 @@ const Reveal = ({ children, style = "" }: RevealProps) => {
       </motion.div>
 
       <motion.div
-        className="absolute top-[4px] bottom-[4px] left-0 right-0 z-20 bg-[#66b6f3]"
+        className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-[#66b6f3] h-full"
+        style={{ clipPath: "inset(0 100% 0 0)" }}
         variants={{
-          hidden: { left: 0 },
-          visible: { left: "100%" },
+          hidden: { clipPath: "inset(0 0 0 0)" },
+          visible: { clipPath: "inset(0 0 0 100%)" },
         }}
         initial="hidden"
         animate={slideControls}
+        exit={{ display: "none" }}
         transition={{ duration: 0.5, ease: "easeIn" }}
       />
     </div>
