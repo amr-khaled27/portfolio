@@ -1,6 +1,6 @@
 :root {
-  --g1: #005a9b;
-  --g2: #00076b;
+  --g1: #858ae3;
+  --g2: #d33f49;
 }
 
 @keyframes background-pan {
@@ -13,8 +13,14 @@
   }
 }
 
+/* body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #242424;
+} */
+
 #parent {
-  animation: background-pan 10s linear infinite;
+  animation: background-pan 5s linear infinite;
   background: linear-gradient(to right, var(--g1), var(--g2), var(--g1));
   background-size: 200%;
   height: 100vh;

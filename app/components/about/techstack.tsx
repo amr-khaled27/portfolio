@@ -152,16 +152,17 @@ const TechStack = ({
             },
             render: {
               fillStyle: Common.choose([
-                "#ff4e00",
-                "#ff8c00",
-                "#ffb700",
-                "#ffd700",
-                "#ffea00",
-                "#ffff00",
-                "#d4ff00",
-                "#a3ff00",
-                "#6bff00",
-                "#00ff00",
+                "#858AE3",
+                "#FF6F61",
+                "#6B4226",
+                "#F7CAC9",
+                "#92A8D1",
+                "#034F84",
+                "#F7786B",
+                "#DE5D83",
+                "#C94C4C",
+                "#FFA07A",
+                "#D33F49",
               ]),
             },
             friction: 0,
@@ -271,7 +272,9 @@ const TechStack = ({
       window.removeEventListener("resize", handleResize);
     };
   }, [numberOfPolygons, technology, walled, wrap]);
-  return <div className={`h-screen ${style}`} ref={scene}></div>;
+  return (
+    <div className={`h-screen text-colors-text ${style}`} ref={scene}></div>
+  );
 };
 
 export default TechStack;

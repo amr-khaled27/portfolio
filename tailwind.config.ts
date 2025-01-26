@@ -13,16 +13,12 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
 
-        blue: {
-          100: "#cce7fb",
-          200: "#99cef7",
-          300: "#66b6f3",
-          400: "#339def",
-          500: "#0085eb",
-          600: "#006abc",
-          700: "#00508d",
-          800: "#00355e",
-          900: "#001b2f",
+        colors: {
+          text: "#f1dbe8",
+          background: "#242424",
+          primary: "#858AE3",
+          secondary: "#D33F49",
+          accent: "#590925",
         },
       },
     },

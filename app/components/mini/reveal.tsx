@@ -35,7 +35,7 @@ const Reveal = ({ children, style = "" }: RevealProps) => {
       </motion.div>
 
       <motion.div
-        className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-[#66b6f3] h-full"
+        className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-[#74baf0] h-full"
         style={{ clipPath: "inset(0 100% 0 0)" }}
         variants={{
           hidden: { clipPath: "inset(0 0 0 0)" },

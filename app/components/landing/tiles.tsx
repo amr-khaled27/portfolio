@@ -35,14 +35,14 @@ const Tiles = () => {
 
       tile.classList.add("tile");
 
-      tile.style.backgroundColor = "#121212";
+      tile.style.backgroundColor = "#242424";
 
       tile.onmouseover = () => {
         tile.style.backgroundColor = "#323232";
       };
 
       tile.onmouseout = () => {
-        tile.style.backgroundColor = "#121212";
+        tile.style.backgroundColor = "#242424";
       };
 
       tile.style.opacity = toggled ? "0" : "1";
@@ -53,7 +53,7 @@ const Tiles = () => {
     };
 
     const createTiles = (quantity: number) => {
-      Array.from(Array(quantity)).map((tile, index) => {
+      Array.from(Array(quantity)).forEach((_, index) => {
         wrapper.current?.appendChild(createTile(index));
       });
     };

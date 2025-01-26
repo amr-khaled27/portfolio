@@ -15,7 +15,7 @@ const ParallaxSection = () => {
   return (
     <motion.div
       ref={container}
-      className="h-screen bg-slate-600 w-full flex justify-center items-center"
+      className="h-screen bg-colors-background w-full flex justify-center items-center"
     >
       <div className="flex flex-col gap-12 w-full relative">
         <ParallaxText style="z-20" baseVelocity={-5}>
@@ -26,7 +26,7 @@ const ParallaxSection = () => {
         </ParallaxText>
         <motion.span
           style={{ width: widthBottom }}
-          className="w-full h-[calc(100%+_36px)] z-10 bg-slate-800 absolute left-0 top-1/2 -translate-y-1/2"
+          className="w-full h-[calc(100%+_36px)] z-10 bg-black/50 absolute left-0 top-1/2 -translate-y-1/2"
         ></motion.span>
       </div>
     </motion.div>

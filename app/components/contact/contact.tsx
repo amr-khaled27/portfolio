@@ -7,41 +7,43 @@ const Contact = () => {
       <TechStack
         numberOfPolygons={50}
         options={{ walled: false, wrap: true }}
-        style="pointer-events-none absolute top-0 left-0 w-full h-full"
+        style="absolute top-0 left-0 w-full h-full"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
 
-      <div className="container z-10 mx-auto grid grid-cols-2 gap-2 h-full items-center">
-        <div className="text-white">
-          <Reveal>
-            <p className="text-[4vw]">
-              Is your next big idea ready to see the light?
-            </p>
-          </Reveal>
-          <Reveal>
-            <p className="text-[2vw]">Let&apos;s Talk</p>
-          </Reveal>
+      <div className="container px-4 sm:px-0 z-10 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-2 h-full items-center">
+        <div className="text-white flex justify-center sm:p-0">
+          <div>
+            <Reveal>
+              <p className="text-4xl font-semibold sm:text-[4vw] leading-tight">
+                Is your next big idea ready to see the light?
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className="text-2xl sm:text-[2vw]">Let&apos;s Talk</p>
+            </Reveal>
+          </div>
         </div>
 
-        <form className="z-10 flex justify-center items-center text-white">
+        <form className="z-10 sm:flex sm:justify-center items-center text-white">
           <div className="flex flex-col gap-4">
-            <Reveal>
+            <Reveal style="w-full sm:w-[33vw]">
               <input
-                className="w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
+                className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
                 type="text"
                 placeholder="Name"
               />
             </Reveal>
-            <Reveal>
+            <Reveal style="w-full sm:w-[33vw]">
               <input
-                className="w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
+                className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
                 type="email"
                 placeholder="Email"
               />
             </Reveal>
-            <Reveal>
+            <Reveal style="w-full sm:w-[33vw]">
               <textarea
-                className="w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
+                className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
                 placeholder="Message"
               ></textarea>
             </Reveal>

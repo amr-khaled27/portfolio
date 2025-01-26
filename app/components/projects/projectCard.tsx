@@ -14,7 +14,7 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <motion.div className="bg-stone-800 rounded-3xl transition p-4 flex flex-col gap-4">
+    <motion.div className="bg-[#303030] shadow-2xl rounded-3xl transition p-4 flex flex-col gap-4">
       <div className="w-full h-full ">
         <div className="rounded-3xl relative shadow-xl">
           <Reveal style="w-full h-full overflow-hidden">
@@ -62,7 +62,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               <a
                 href={project.link}
                 target="_blank"
-                className="p-4 block mt-1 bg-white font-semibold text-black duration-300 rounded-3xl mb-4 hover:scale-95"
+                className="p-4 shadow-xl block mt-1 bg-white font-semibold text-black duration-300 rounded-3xl mb-4 hover:scale-95"
               >
                 Check it out!
                 <FontAwesomeIcon
@@ -74,7 +74,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 <a
                   href={project.demo}
                   target="_blank"
-                  className="p-4 block mt-1 bg-green-600 font-semibold text-white duration-300 rounded-3xl mb-4 hover:scale-95"
+                  className="p-4 shadow-xl block mt-1 bg-green-600 font-semibold text-white duration-300 rounded-3xl mb-4 hover:scale-95"
                 >
                   Live Demo
                   <FontAwesomeIcon
