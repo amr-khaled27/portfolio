@@ -248,10 +248,7 @@ const TechStack = ({
     Runner.run(runner, engine);
     Render.run(render);
 
-    if (typeof window === "undefined" || !scene.current) return;
-    else {
-      window.addEventListener("resize", handleResize);
-    }
+    window.addEventListener("resize", handleResize);
 
     const mouse = Matter.Mouse.create(render.canvas);
 
