@@ -70,11 +70,9 @@
 
 #title {
   color: white;
-  font-family: "Rubik", sans-serif;
   margin: 0px;
   pointer-events: none;
   transition: opacity 1200ms ease;
-  line-height: 50px;
 }
 
 #subtitle {

@@ -81,7 +81,7 @@ const About = () => {
     <>
       <div
         ref={container}
-        className="bg-colors-background relative h-[600vh] flex justify-center"
+        className="bg-colors-background relative h-[300vh] flex justify-center"
       >
         <motion.div
           ref={ref}
@@ -100,7 +100,7 @@ const About = () => {
             >
               <Image
                 src="/about.jpg"
-                alt="Descriptive Alt Text"
+                alt="Picture of a developer"
                 layout="fill"
                 objectFit="cover"
                 className="w-full h-full scale-[1.35]"
@@ -164,8 +164,7 @@ const OverlayCopy = ({ text, progress }: OverlayCopyProps) => {
   return (
     <motion.div
       style={{ y: scrollY }}
-      className="z-30 p-4 h-screen flex items-center
-     text-colors-text text-3xl"
+      className="z-30 p-4 h-screen flex items-center text-colors-text"
     >
       <p className="flex flex-wrap">
         {words.map((word, i) => {
@@ -191,7 +190,7 @@ type WordProps = {
 const Word: React.FC<WordProps> = ({ children, range, progress }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
-    <span className="mr-2 mt-2 relative text-4xl font-bold">
+    <span className="mr-2 mt-2 2xl:mr-6 2xl:mt-3 relative font-bold text-4xl sm:text-5xl 2xl:text-7xl">
       <span className="absolute opacity-20">{children}</span>
       <motion.span style={{ opacity }} className="">
         {children}

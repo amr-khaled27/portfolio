@@ -17,11 +17,11 @@ const ParallaxSection = () => {
       ref={container}
       className="h-screen bg-colors-background w-full flex justify-center items-center"
     >
-      <div className="flex flex-col gap-12 w-full relative">
-        <ParallaxText style="z-20" baseVelocity={-5}>
+      <div className="flex flex-col gap-12 text-9xl w-full relative">
+        <ParallaxText style="z-20 text-6xl 2xl:text-9xl" baseVelocity={-5}>
           It&apos;s Passion
         </ParallaxText>
-        <ParallaxText style="z-20" baseVelocity={5}>
+        <ParallaxText style="z-20 text-6xl 2xl:text-9xl" baseVelocity={5}>
           It&apos;s Art
         </ParallaxText>
         <motion.span
