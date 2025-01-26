@@ -33,30 +33,10 @@ const Header = () => {
     >
       <nav>
         <ul className="flex gap-2">
-          <a
-            href="#landing"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 text-black hover:bg-white/80 duration-300 font-thin active:scale-95"
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 text-black hover:bg-white/80 duration-300 font-thin active:scale-95"
-          >
-            About
-          </a>
-          <a
-            href="#projects"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 text-black hover:bg-white/80 duration-300 font-thin active:scale-95"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white/50 text-black hover:bg-white/80 duration-300 font-thin active:scale-95"
-          >
-            Contact
-          </a>
+          <button className="btn btn-primary">Home</button>
+          <button className="btn btn-primary">About</button>
+          <button className="btn btn-primary">Projects</button>
+          <button className="btn btn-primary">Contact</button>
         </ul>
       </nav>
     </header>

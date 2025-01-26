@@ -11,7 +11,6 @@ const pattaya = Pattaya({
 const Landing = () => {
   return (
     <motion.div
-      id="landing"
       variants={{
         hidden: { opacity: 0 },
         visible: { opacity: 1 },

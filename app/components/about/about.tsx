@@ -80,7 +80,6 @@ const About = () => {
   return (
     <>
       <div
-        id="about"
         ref={container}
         className="bg-colors-background relative h-[300vh] flex justify-center"
       >

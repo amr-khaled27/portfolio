@@ -2,13 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
+}
+
+.btn-primary {
+  @apply border-0 bg-white/60 rounded-full outline-none hover:bg-white font-thin;
 }
 
 @keyframes gradientAnimation {
