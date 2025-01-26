@@ -1,3 +1,4 @@
+import Head from "next/head";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import { ReactLenis } from "./utils/lenis";
@@ -22,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <ReactLenis root>
         <body className={`${rubik.className} antialiased`}>{children}</body>
       </ReactLenis>
