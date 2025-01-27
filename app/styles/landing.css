@@ -13,11 +13,20 @@
   }
 }
 
-/* body {
-  margin: 0;
-  overflow: hidden;
-  background-color: #242424;
-} */
+@keyframes animated-text {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: -200%;
+  }
+}
+
+.animated-text {
+  animation: animated-text 5s linear 0ms infinite forwards;
+  background-size: 200%;
+  display: inline-block;
+}
 
 #parent {
   animation: background-pan 5s linear infinite;

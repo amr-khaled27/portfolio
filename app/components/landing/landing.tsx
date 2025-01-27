@@ -26,7 +26,7 @@ const Landing = () => {
       >
         Hey There 👋, I&apos;m{" "}
         <span
-          className={`${pattaya.className} font-bold text-5xl sm:text-7 xl md:text-8xl 2xl:text-[138px] text-[#01a2ff]`}
+          className={`${pattaya.className} font-bold text-5xl sm:text-7 xl md:text-8xl 2xl:text-[138px] animated-text bg-gradient-to-r from-[#858AE3] to-[#D33F49] bg-clip-text text-transparent`}
         >
           Amr Khaled
         </span>
