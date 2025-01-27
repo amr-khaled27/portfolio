@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio Project
 
-## Getting Started
+![swappy-20250128_012537](https://github.com/user-attachments/assets/cc73cfb6-3f7f-4569-a047-09c0c4de1f33)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a web application that showcases my skills, experience, and projects. The app is built using **Node.js** and **Tailwind CSS** to create a clean, responsive, and interactive user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** - React framework for building fast, dynamic websites with server-side rendering and static site generation.
+- **Node.js** - Backend JavaScript runtime for handling server-side logic and API requests.
+- **Tailwind CSS** - Utility-first CSS framework for designing a modern, responsive UI with minimal effort.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Smooth Animations**: Experience smooth transitions and animations throughout the website.
+- **Smooth Scroll**: Seamless scrolling effect to improve navigation experience.
+- **Responsive Design**: Fully responsive layout for an optimal viewing experience across all devices.
+- **Dark Mode**: To improve accessibility.
+- **Contact Form**: A functional contact form to get in touch directly through the website.
+- **Interactive Project Showcase**: View detailed descriptions and links to my personal projects with interactive elements.
+- **SEO Optimized**: Improved search engine optimization to ensure better visibility and ranking.
+- **Mobile-Friendly**: Designed with mobile-first principles in mind to ensure great performance on smaller screens.
