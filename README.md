@@ -3,7 +3,7 @@
 ![swappy-20250128_012537](https://github.com/user-attachments/assets/cc73cfb6-3f7f-4569-a047-09c0c4de1f33)
 
 
-This is a web application that showcases my skills, experience, and projects. The app is built using **Node.js** and **Tailwind CSS** to create a clean, responsive, and interactive user experience.
+This is a web application that showcases my skills, experience, and projects. The app is built using **Next.js** and **Tailwind CSS** to create a clean, responsive, and interactive user experience.
 
 ## Tech Stack
 
