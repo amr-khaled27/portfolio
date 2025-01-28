@@ -35,7 +35,6 @@ const Contact = () => {
                 className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
                 type="text"
                 placeholder="Name"
-                name="name"
               />
             </Reveal>
             <Reveal style="w-full sm:w-[33vw]">
