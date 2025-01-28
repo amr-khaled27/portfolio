@@ -1,8 +1,6 @@
 import TechStack from "../about/techstack";
 import Reveal from "../mini/reveal";
 
-// Contact
-
 const Contact = () => {
   return (
     <div
