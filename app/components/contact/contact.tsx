@@ -28,18 +28,13 @@ const Contact = () => {
           </div>
         </div>
 
-        <form
-          method="POST"
-          data-netlify="true"
-          className="z-10 sm:flex sm:justify-center items-center text-white"
-        >
+        <form className="z-10 sm:flex sm:justify-center items-center text-white">
           <div className="flex flex-col gap-4">
             <Reveal style="w-full sm:w-[33vw]">
               <input
                 className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
                 type="text"
                 placeholder="Name"
-                name="name"
               />
             </Reveal>
             <Reveal style="w-full sm:w-[33vw]">
@@ -47,14 +42,12 @@ const Contact = () => {
                 className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
                 type="email"
                 placeholder="Email"
-                name="email"
               />
             </Reveal>
             <Reveal style="w-full sm:w-[33vw]">
               <textarea
                 className="w-full max-h-[200px] sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
                 placeholder="Message"
-                name="message"
               ></textarea>
             </Reveal>
             <Reveal style="w-full">
