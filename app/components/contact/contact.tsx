@@ -1,5 +1,11 @@
+import {
+  faGithub,
+  faGoogle,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 import TechStack from "../about/techstack";
 import Reveal from "../mini/reveal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Contact = () => {
   return (
@@ -36,32 +42,46 @@ const Contact = () => {
         >
           <div className="flex flex-col gap-4">
             <Reveal style="w-full sm:w-[33vw]">
-              <input
-                className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
-                type="text"
-                placeholder="Name"
-              />
-            </Reveal>
-            <Reveal style="w-full sm:w-[33vw]">
-              <input
-                className="w-full sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
-                type="email"
-                placeholder="Email"
-              />
-            </Reveal>
-            <Reveal style="w-full sm:w-[33vw]">
-              <textarea
-                className="w-full max-h-[200px] sm:w-[33vw] bg-white/20 focus:outline-none backdrop-blur-sm p-4 rounded-xl"
-                placeholder="Message"
-              ></textarea>
-            </Reveal>
-            <Reveal style="w-full">
-              <button
-                type="submit"
-                className="w-full p-4 text-center rounded-xl bg-white/20 backdrop-blur-sm hover:bg-white/60 hover:text-black duration-150"
+              <a
+                target="_blank"
+                href="mailto:3moorkh2005@gmail.com"
+                className="w-full bg-white/20 focus:outline-none duration-300 hover:bg-white/40 backdrop-blur-sm active:scale-95 p-4 rounded-xl grid grid-cols-3"
               >
-                Send
-              </button>
+                <FontAwesomeIcon
+                  className="text-3xl"
+                  icon={faGoogle}
+                ></FontAwesomeIcon>
+                <p className="text-center centered text-xl">Email</p>
+                <div></div>
+              </a>
+            </Reveal>
+            <Reveal style="w-full sm:w-[33vw]">
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/amr-khaled-74b936256/"
+                className="w-full bg-white/20 focus:outline-none duration-300 hover:bg-white/40 backdrop-blur-sm active:scale-95 p-4 rounded-xl grid grid-cols-3"
+              >
+                <FontAwesomeIcon
+                  className="text-3xl"
+                  icon={faLinkedin}
+                ></FontAwesomeIcon>
+                <p className="text-center centered text-xl">LinkedIn</p>
+                <div></div>
+              </a>
+            </Reveal>
+            <Reveal style="w-full sm:w-[33vw]">
+              <a
+                target="_blank"
+                href="https://github.com/amr-khaled27"
+                className="w-full bg-white/20 focus:outline-none duration-300 hover:bg-white/40 backdrop-blur-sm active:scale-95 p-4 rounded-xl grid grid-cols-3"
+              >
+                <FontAwesomeIcon
+                  className="text-3xl"
+                  icon={faGithub}
+                ></FontAwesomeIcon>
+                <p className="text-center centered text-xl">GitHub</p>
+                <div></div>
+              </a>
             </Reveal>
           </div>
         </form>
