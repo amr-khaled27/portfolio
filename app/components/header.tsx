@@ -1,6 +1,14 @@
+import { motion } from "motion/react";
+
 const Header = () => {
   return (
-    <header
+    <motion.header
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      initial="hidden"
+      animate="visible"
       className={`p-2 flex justify-center fixed top-2 left-1/2 -translate-x-1/2 rounded-full bg-white/30 backdrop-blur-lg z-[999] transition-transform duration-300 "translate-y-0""
       }`}
     >
@@ -32,7 +40,7 @@ const Header = () => {
           </a>
         </ul>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 

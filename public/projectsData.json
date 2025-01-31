@@ -1,8 +1,17 @@
 [
   {
+    "title": "Physics Sandbox",
+    "description": "A physics sandbox application that allows users to create and simulate physics scenes using matter.js.",
+    "mainTags": ["latest!"],
+    "image": "/physics.png",
+    "link": "https://github.com/amr-khaled27/physics-next-app",
+    "tags": ["matter.js", "next.js", "typescript"],
+    "demo": "https://physicssandbox.netlify.app/"
+  },
+  {
     "title": "Gemini Chat",
     "description": "A cli tool to chat with gemini from the comfort of your terminal!",
-    "mainTags": ["newest!"],
+    "mainTags": ["new feature!"],
     "image": "/gemini.png",
     "link": "https://github.com/amr-khaled27/gemini-cli",
     "tags": ["tools", "cli", "typescript"]
