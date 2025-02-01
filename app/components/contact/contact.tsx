@@ -29,7 +29,7 @@ const Contact = () => {
               </p>
             </Reveal>
             <Reveal>
-              <p className="text-2xl sm:text-[2vw]">Let&apos;s Talk</p>
+              <p className="text-2xl sm:text-[2vw] xl:mt-4">Let&apos;s Talk</p>
             </Reveal>
           </div>
         </div>
