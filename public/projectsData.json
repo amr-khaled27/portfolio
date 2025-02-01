@@ -6,7 +6,8 @@
     "image": "/physics.png",
     "link": "https://github.com/amr-khaled27/physics-next-app",
     "tags": ["matter.js", "next.js", "typescript"],
-    "demo": "https://physicssandbox.netlify.app/"
+    "demo": "https://physicssandbox.netlify.app/",
+    "type": "web"
   },
   {
     "title": "Gemini Chat",
@@ -14,7 +15,8 @@
     "mainTags": ["new feature!"],
     "image": "/gemini.png",
     "link": "https://github.com/amr-khaled27/gemini-cli",
-    "tags": ["tools", "cli", "typescript"]
+    "tags": ["tools", "cli", "typescript"],
+    "type": "tools"
   },
   {
     "title": "OH Clone",
@@ -26,14 +28,16 @@
     "collaborator": {
       "name": "Ayman Soliman",
       "link": "https://github.com/ayman-soliman-1783"
-    }
+    },
+    "type": "web"
   },
   {
     "title": "Downloads Organizer Tool",
     "description": "An automation tool to organize your downloads on Windows folder using Python.",
     "image": "/pyOrganizer.png",
     "link": "https://github.com/amr-khaled27/downloads-organizer-tool",
-    "tags": ["python", "automation", "tools"]
+    "tags": ["python", "automation", "tools"],
+    "type": "tools"
   },
   {
     "title": "Calculator App",
@@ -41,7 +45,8 @@
     "image": "/calculator.png",
     "link": "https://amr-khaled27.github.io/calculator/",
     "tags": ["native", "calculator", "web development"],
-    "demo": "https://amr-khaled27.github.io/calculator/"
+    "demo": "https://amr-khaled27.github.io/calculator/",
+    "type": "web"
   },
   {
     "title": "Sultan Gym",
@@ -49,7 +54,8 @@
     "image": "/sultan-gym.png",
     "link": "https://github.com/amr-khaled27/sultan_gym",
     "tags": ["web development", "tailwindcss", "landing page"],
-    "demo": "https://amr-khaled27.github.io/sultan_gym/"
+    "demo": "https://amr-khaled27.github.io/sultan_gym/",
+    "type": "web"
   },
   {
     "title": "Weather App",
@@ -57,6 +63,7 @@
     "image": "/weather-app.png",
     "link": "https://github.com/amr-khaled27/weather_app",
     "tags": ["typescript", "weather", "api"],
-    "demo": "https://playful-melba-c38a33.netlify.app/"
+    "demo": "https://playful-melba-c38a33.netlify.app/",
+    "type": "web"
   }
 ]
