@@ -17,7 +17,6 @@ This is a web application that showcases my skills, experience, and projects. Th
 - **Smooth Scroll**: Seamless scrolling effect to improve navigation experience.
 - **Responsive Design**: Fully responsive layout for an optimal viewing experience across all devices.
 - **Dark Mode**: To improve accessibility.
-- **Contact Form**: A functional contact form to get in touch directly through the website.
 - **Interactive Project Showcase**: View detailed descriptions and links to my personal projects with interactive elements.
 - **SEO Optimized**: Improved search engine optimization to ensure better visibility and ranking.
 - **Mobile-Friendly**: Designed with mobile-first principles in mind to ensure great performance on smaller screens.
