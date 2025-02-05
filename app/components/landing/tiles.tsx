@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
 import "../../styles/landing.css";
-import anime from "animejs";
 
 const Tiles = () => {
   const parent = useRef<HTMLDivElement | null>(null);
@@ -10,51 +9,18 @@ const Tiles = () => {
   useEffect(() => {
     let columns: number = 0;
     let rows: number = 0;
-    let toggled: boolean = false;
 
-    const toggle = () => {
-      toggled = !toggled;
-      parent.current?.classList.toggle("toggled");
-    };
-
-    const handleOnClick = (index: number) => {
-      toggle();
-
-      anime({
-        targets: ".tile",
-        opacity: toggled ? 0 : 1,
-        delay: anime.stagger(50, {
-          grid: [columns, rows],
-          from: index,
-        }),
-      });
-    };
-
-    const createTile = (index: number) => {
+    const createTile = () => {
       const tile = document.createElement("div");
 
-      tile.classList.add("tile");
-
       tile.style.backgroundColor = "#242424";
-
-      tile.onmouseover = () => {
-        tile.style.backgroundColor = "#323232";
-      };
-
-      tile.onmouseout = () => {
-        tile.style.backgroundColor = "#242424";
-      };
-
-      tile.style.opacity = toggled ? "0" : "1";
-
-      tile.onclick = () => handleOnClick(index);
 
       return tile;
     };
 
     const createTiles = (quantity: number) => {
-      Array.from(Array(quantity)).forEach((_, index) => {
-        wrapper.current?.appendChild(createTile(index));
+      Array.from(Array(quantity)).forEach(() => {
+        wrapper.current?.appendChild(createTile());
       });
     };
 

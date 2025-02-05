@@ -31,12 +31,6 @@ const Landing = () => {
           Amr Khaled
         </span>
       </h1>
-      <h2
-        id="subtitle"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-balance text-colors-text text-4xl sm:text-6 xl md:text-6xl 2xl:text-7xl font-thin"
-      >
-        A fullstack developer proficient in <span>modern web technologies</span>
-      </h2>
     </motion.div>
   );
 };
