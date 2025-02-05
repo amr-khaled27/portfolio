@@ -16,25 +16,25 @@ const Header = () => {
         <ul className="flex gap-2">
           <a
             href="#landing"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white hover:scale-95 duration-300 hover:bg-white/75 text-black font-thin"
+            className="py-2 px-3 sm:px-5 rounded-full bg-gray-200 hover:scale-95 duration-300 hover:bg-gray-50 text-black font-thin"
           >
             Home
           </a>
           <a
             href="#about"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white hover:scale-95 duration-300 hover:bg-white/75 text-black font-thin"
+            className="py-2 px-3 sm:px-5 rounded-full bg-gray-200 hover:scale-95 duration-300 hover:bg-gray-50 text-black font-thin"
           >
             About
           </a>
           <a
             href="#projects"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white hover:scale-95 duration-300 hover:bg-white/75 text-black font-thin"
+            className="py-2 px-3 sm:px-5 rounded-full bg-gray-200 hover:scale-95 duration-300 hover:bg-gray-50 text-black font-thin"
           >
             Projects
           </a>
           <a
             href="#contact"
-            className="py-2 px-3 sm:px-5 rounded-full bg-white hover:scale-95 duration-300 hover:bg-white/75 text-black font-thin"
+            className="py-2 px-3 sm:px-5 rounded-full bg-gray-200 hover:scale-95 duration-300 hover:bg-gray-50 text-black font-thin"
           >
             Contact
           </a>
