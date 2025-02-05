@@ -124,7 +124,7 @@ const About = () => {
       <div className="bg-colors-background">
         <AnimateScroll>
           <div className="relative w-screen h-screen">
-            <h3 className="text-4xl xl:text-6xl text-colors-text p-4 flex flex-col z-30 bg-black/50 backdrop-blur-sm w-screen font-bold text-center absolute left-1/2 -translate-x-1/2 pointer-events-none">
+            <h3 className="text-4xl 2xl:text-6xl text-colors-text p-4 flex flex-col z-30 bg-black/50 backdrop-blur-sm w-screen font-bold text-center absolute left-1/2 -translate-x-1/2 pointer-events-none">
               My Tech Stack
               <span className="text-lg xl:text-2xl font-normal hidden sm:inline">
                 Feel free to play around with them!

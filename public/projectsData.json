@@ -1,18 +1,27 @@
 [
   {
+    "title": "Authenticated Todo",
+    "description": "A todo list application that allows users to create, update, and delete tasks. Users can also sign up and log in to access their tasks.",
+    "mainTags": ["latest!"],
+    "image": "/todo.png",
+    "link": "https://github.com/amr-khaled27/physics-next-app",
+    "tags": ["auth", "next.js", "typescript"],
+    "demo": "https://physicssandbox.netlify.app/",
+    "type": "web"
+  },
+  {
     "title": "Physics Sandbox",
     "description": "A physics sandbox application that allows users to create and simulate physics scenes using matter.js.",
-    "mainTags": ["latest!"],
     "image": "/physics.png",
-    "link": "https://github.com/amr-khaled27/physics-next-app",
+    "link": "https://github.com/amr-khaled27/todo-auth",
     "tags": ["matter.js", "next.js", "typescript"],
-    "demo": "https://physicssandbox.netlify.app/",
+    "demo": "https://todo-auth-tan.vercel.app/",
     "type": "web"
   },
   {
     "title": "Gemini Chat",
     "description": "A cli tool to chat with gemini from the comfort of your terminal!",
-    "mainTags": ["new feature!"],
+    "mainTags": ["new release!"],
     "image": "/gemini.png",
     "link": "https://github.com/amr-khaled27/gemini-cli",
     "tags": ["tools", "cli", "typescript"],
