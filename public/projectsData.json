@@ -1,12 +1,12 @@
 [
   {
-    "title": "Authenticated Todo",
-    "description": "A todo list application that allows users to create, update, and delete tasks. Users can also sign up and log in to access their tasks.",
+    "title": "Idea Flow",
+    "description": "An idea generator and note-taking app powered by Gemini AI, get inspiration in seconds!",
     "mainTags": ["latest!"],
-    "image": "/todo.png",
-    "link": "https://github.com/amr-khaled27/todo-auth",
-    "tags": ["auth", "next.js", "typescript"],
-    "demo": "https://todo-auth-tan.vercel.app/",
+    "image": "/ideaflow.png",
+    "link": "https://github.com/amr-khaled27/idea-flow",
+    "tags": ["ai", "note-taking", "inspiration"],
+    "demo": "https://idea-flow-project.netlify.app",
     "type": "web"
   },
   {
@@ -41,12 +41,13 @@
     "type": "web"
   },
   {
-    "title": "Downloads Organizer Tool",
-    "description": "An automation tool to organize your downloads on Windows folder using Python.",
-    "image": "/pyOrganizer.png",
-    "link": "https://github.com/amr-khaled27/downloads-organizer-tool",
-    "tags": ["python", "automation", "tools"],
-    "type": "tools"
+    "title": "Authenticated Todo",
+    "description": "A todo list application that allows users to create, update, and delete tasks. Users can also sign up and log in to access their tasks.",
+    "image": "/todo.png",
+    "link": "https://github.com/amr-khaled27/todo-auth",
+    "tags": ["auth", "next.js", "typescript"],
+    "demo": "https://todo-auth-tan.vercel.app/",
+    "type": "web"
   },
   {
     "title": "Calculator App",
@@ -74,5 +75,13 @@
     "tags": ["typescript", "weather", "api"],
     "demo": "https://playful-melba-c38a33.netlify.app/",
     "type": "web"
+  },
+  {
+    "title": "Downloads Organizer Tool",
+    "description": "An automation tool to organize your downloads on Windows folder using Python.",
+    "image": "/pyOrganizer.png",
+    "link": "https://github.com/amr-khaled27/downloads-organizer-tool",
+    "tags": ["python", "automation", "tools"],
+    "type": "tools"
   }
 ]
