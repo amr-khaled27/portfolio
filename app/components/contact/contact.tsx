@@ -20,7 +20,7 @@ const Contact = () => {
       />
       <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
 
-      <div className="container px-4 sm:px-0 z-10 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-2 h-full items-center">
+      <div className="container px-4 sm:px-0 z-10 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-2 2xl:gap-12 h-full items-center">
         <div className="text-white flex justify-center sm:p-0">
           <div>
             <Reveal>
