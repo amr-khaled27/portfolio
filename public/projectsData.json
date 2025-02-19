@@ -1,11 +1,19 @@
 [
   {
+    "title": "Ecommerce Store",
+    "description": "A Fullstack Ecommerce Store built using React, TypeScript, and Express, with many features like JWT authentication, Stripe payment, and more.",
+    "mainTags": ["latest!"],
+    "image": "/watchstore.png",
+    "link": "https://www.linkedin.com/posts/amr-khaled-74b936256_ecommerce-fullstack-react-activity-7298007243084455936-lzgY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD8ka6sBUtGvv-o2wwTW4m1qUM_tBmasP-M",
+    "tags": ["ecommerce", "auth", "fullstack"],
+    "type": "web"
+  },
+  {
     "title": "Idea Flow",
     "description": "An idea generator and note-taking app powered by Gemini AI, get inspiration in seconds!",
-    "mainTags": ["latest!"],
     "image": "/ideaflow.png",
     "link": "https://github.com/amr-khaled27/idea-flow",
-    "tags": ["ai", "note-taking", "inspiration"],
+    "tags": ["ai", "note-taking", "fullstack"],
     "demo": "https://idea-flow-project.netlify.app",
     "type": "web"
   },
@@ -45,7 +53,7 @@
     "description": "A todo list application that allows users to create, update, and delete tasks. Users can also sign up and log in to access their tasks.",
     "image": "/todo.png",
     "link": "https://github.com/amr-khaled27/todo-auth",
-    "tags": ["auth", "next.js", "typescript"],
+    "tags": ["next.js", "typescript", "fullstack"],
     "demo": "https://todo-auth-tan.vercel.app/",
     "type": "web"
   },
