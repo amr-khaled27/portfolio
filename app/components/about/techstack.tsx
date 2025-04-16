@@ -130,6 +130,11 @@ const TechStack = ({
           }
         );
 
+        Matter.Body.applyForce(box, box.position, {
+          x: (Math.random() - 0.5) * 0.5,
+          y: (Math.random() - 0.5) * 0.5,
+        });
+
         boxes.push(box);
         World.add(engine.world, box);
       });
