@@ -8,6 +8,7 @@ import TechStack from "./techstack";
 import AnimateScroll from "../mini/animatescroll";
 
 type Technology = {
+  type?: string;
   width: number;
   height: number;
   radius: number;
@@ -16,32 +17,32 @@ type Technology = {
 
 const technologies: Technology[] = [
   {
-    width: 300,
+    width: 60,
     height: 60,
-    radius: 30,
+    radius: 15,
     pngLocation: "html.png",
   },
   {
-    width: 150,
-    height: 150,
-    radius: 30,
+    width: 60,
+    height: 60,
+    radius: 15,
     pngLocation: "css.png",
   },
   {
-    width: 150,
-    height: 150,
-    radius: 30,
+    width: 60,
+    height: 60,
+    radius: 15,
     pngLocation: "js.png",
   },
   {
-    width: 160,
-    height: 160,
-    radius: 80,
+    width: 250,
+    height: 75,
+    radius: 15,
     pngLocation: "react.png",
   },
   {
-    width: 150,
-    height: 150,
+    width: 90,
+    height: 90,
     radius: 0,
     pngLocation: "ts.png",
   },
@@ -52,10 +53,29 @@ const technologies: Technology[] = [
     pngLocation: "tailwind.png",
   },
   {
-    width: 275,
-    height: 75,
-    radius: 10,
+    width: 280,
+    height: 60,
+    radius: 30,
     pngLocation: "nextjs.png",
+  },
+  {
+    width: 200,
+    height: 80,
+    radius: 15,
+    pngLocation: "drizzle.png",
+  },
+  {
+    width: 100,
+    height: 100,
+    radius: 15,
+    pngLocation: "vite.png",
+  },
+  {
+    type: "hex",
+    width: 48,
+    height: 0,
+    radius: 15,
+    pngLocation: "node.png",
   },
 ];
 

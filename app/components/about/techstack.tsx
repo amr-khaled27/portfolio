@@ -17,6 +17,7 @@ interface TechStackProps {
     walled: boolean;
   };
   technology?: {
+    type?: string;
     width: number;
     height: number;
     radius: number;
@@ -97,46 +98,83 @@ const TechStack = ({
 
     if (technology) {
       technology.forEach((tech) => {
-        const box = Matter.Bodies.rectangle(
-          Math.random() * scene.current!.clientWidth,
-          Math.random() * scene.current!.clientHeight,
-          tech.width,
-          tech.height,
-          {
-            angle: (Math.random() - 0.5) * (Math.PI / 8),
-            chamfer: { radius: tech.radius },
-            plugin: wrap
-              ? {
-                  wrap: {
-                    min: {
-                      x: 0,
-                      y: 0,
-                    },
-                    max: {
-                      x: scene.current!.clientWidth,
-                      y: scene.current!.clientHeight,
-                    },
-                  },
-                }
-              : "",
-            frictionAir: 0,
-            render: {
-              sprite: {
-                texture: tech.pngLocation,
-                xScale: 1,
-                yScale: 1,
-              },
-            },
-          }
-        );
+        let shape: Matter.Body;
 
-        Matter.Body.applyForce(box, box.position, {
-          x: (Math.random() - 0.5) * 0.5,
-          y: (Math.random() - 0.5) * 0.5,
+        if (tech.type === "hex") {
+          const sideLength = tech.width;
+          shape = Matter.Bodies.polygon(
+            Math.random() * scene.current!.clientWidth,
+            Math.random() * scene.current!.clientHeight,
+            6,
+            sideLength,
+            {
+              angle: (Math.random() - 0.5) * (Math.PI / 8),
+              plugin: wrap
+                ? {
+                    wrap: {
+                      min: {
+                        x: 0,
+                        y: 0,
+                      },
+                      max: {
+                        x: scene.current!.clientWidth,
+                        y: scene.current!.clientHeight,
+                      },
+                    },
+                  }
+                : "",
+              frictionAir: 0,
+              render: {
+                sprite: {
+                  texture: tech.pngLocation,
+                  xScale: 1,
+                  yScale: 1,
+                },
+              },
+            }
+          );
+        } else {
+          shape = Matter.Bodies.rectangle(
+            Math.random() * scene.current!.clientWidth,
+            Math.random() * scene.current!.clientHeight,
+            tech.width,
+            tech.height,
+            {
+              angle: (Math.random() - 0.5) * (Math.PI / 8),
+              chamfer: { radius: tech.radius },
+              plugin: wrap
+                ? {
+                    wrap: {
+                      min: {
+                        x: 0,
+                        y: 0,
+                      },
+                      max: {
+                        x: scene.current!.clientWidth,
+                        y: scene.current!.clientHeight,
+                      },
+                    },
+                  }
+                : "",
+              frictionAir: 0,
+              render: {
+                sprite: {
+                  texture: tech.pngLocation,
+                  xScale: 1,
+                  yScale: 1,
+                },
+              },
+            }
+          );
+        }
+
+        Matter.Body.applyForce(shape, shape.position, {
+          x: (Math.random() - 0.5) * 0.02,
+          y: (Math.random() - 0.5) * 0.02,
         });
 
-        boxes.push(box);
-        World.add(engine.world, box);
+        boxes.push(shape);
+        World.add(engine.world, shape);
       });
     }
 
