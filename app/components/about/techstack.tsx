@@ -288,7 +288,6 @@ const TechStack = ({
     if (scene.current) observer.observe(scene.current);
 
     return () => {
-      const currentScene = scene.current;
       Render.stop(render);
       Runner.stop(runner);
       World.clear(engine.world, false);
