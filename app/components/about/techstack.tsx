@@ -41,34 +41,12 @@ const TechStack = React.memo<TechStackProps>(
     const renderCount = useRef(0);
     renderCount.current += 1;
 
-    // Only log on first render to avoid spam
-    if (renderCount.current === 1) {
-      console.log(
-        "⚡ TechStack loaded - polygons:",
-        numberOfPolygons,
-        "lowEndDevice:",
-        lowEndDevice
-      );
-    } else if (
-      renderCount.current === 2 &&
-      process.env.NODE_ENV === "development"
-    ) {
-      console.log("⚡ TechStack (Strict Mode render)");
-    } else if (renderCount.current > 2) {
-      console.warn(
-        "⚠️ TechStack re-rendered unexpectedly:",
-        renderCount.current
-      );
-    }
-
     const scene = useRef<HTMLDivElement>(null);
 
     Matter.use("matter-wrap");
 
     useEffect(() => {
       if (!scene.current) return;
-
-      const performanceStartTime = performance.now();
 
       const engine = Engine.create();
       const render = Render.create({
@@ -308,32 +286,6 @@ const TechStack = React.memo<TechStackProps>(
         World.add(engine.world, mouseConstraint);
       }
 
-      const currentScene = scene.current;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (!entry.isIntersecting) {
-            Runner.stop(runner);
-            console.log("⚡ TechStack paused (not visible)");
-          } else {
-            Runner.run(runner, engine);
-            console.log("⚡ TechStack resumed (visible)");
-          }
-        },
-        { threshold: 0.1 }
-      );
-      if (currentScene) observer.observe(currentScene);
-
-      const performanceEndTime = performance.now();
-      const initTime = performanceEndTime - performanceStartTime;
-      if (initTime > 100) {
-        console.warn(
-          "⚠️ TechStack slow initialization:",
-          `${initTime.toFixed(2)}ms`
-        );
-      } else {
-        console.log("⚡ TechStack initialized in:", `${initTime.toFixed(2)}ms`);
-      }
-
       return () => {
         console.log("⚡ TechStack cleanup started");
         Render.stop(render);
@@ -343,7 +295,6 @@ const TechStack = React.memo<TechStackProps>(
         render.canvas.remove();
         render.textures = {};
         window.removeEventListener("resize", handleResize);
-        if (currentScene) observer.unobserve(currentScene);
         console.log("⚡ TechStack cleanup completed");
       };
     }, [numberOfPolygons, technology, walled, wrap]);
