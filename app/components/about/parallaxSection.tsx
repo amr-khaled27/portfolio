@@ -1,15 +1,19 @@
 "use client";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import ParallaxText from "./velocity";
 
-const ParallaxSection = () => {
+const ParallaxSection = React.memo(() => {
+  const renderCount = useRef(0);
+  renderCount.current += 1;
+
   const container = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end 50vh"],
   });
+
   const widthBottom = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
@@ -31,6 +35,8 @@ const ParallaxSection = () => {
       </div>
     </motion.div>
   );
-};
+});
+
+ParallaxSection.displayName = "ParallaxSection";
 
 export default ParallaxSection;

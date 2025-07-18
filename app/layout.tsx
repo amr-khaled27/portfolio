@@ -9,6 +9,8 @@ config.autoAddCss = false;
 
 const rubik = Rubik({
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "arial"],
 });
 
 export const metadata: Metadata = {

@@ -1,8 +1,9 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import { MotionValue } from "framer-motion";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import ParallaxSection from "./parallaxSection";
 import TechStack from "./techstack";
 import AnimateScroll from "../mini/animatescroll";
@@ -97,6 +98,17 @@ const About = () => {
   const rounded = useTransform(scrollYProgress, [0, 1], [0, 25]);
   const pos = useTransform(scrollYProgressContainer, [0, 1], [100, -100]);
 
+  const isInViewport = useRef(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (!isInViewport.current) return;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollYProgressContainer]);
+
   return (
     <>
       <div
@@ -122,8 +134,8 @@ const About = () => {
               <Image
                 src="/about.jpg"
                 alt="Picture of a developer"
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: "cover" }}
                 className="w-full h-full scale-[1.35]"
               />
             </motion.div>
@@ -177,30 +189,49 @@ type OverlayCopyProps = {
   progress: MotionValue<number>;
 };
 
-const OverlayCopy = ({ text, progress }: OverlayCopyProps) => {
-  const scrollY = useTransform(progress, [0, 1], [150, -150]);
+const OverlayCopy = React.memo(
+  ({ text, progress }: OverlayCopyProps) => {
+    const renderCount = useRef(0);
+    renderCount.current += 1;
 
-  const words = text.split(" ");
+    const scrollY = useTransform(progress, [0, 1], [150, -150]);
 
-  return (
-    <motion.div
-      style={{ y: scrollY }}
-      className="z-30 p-4 h-screen flex items-center text-colors-text"
-    >
-      <p className="flex flex-wrap">
-        {words.map((word, i) => {
+    const words = useMemo(() => text.split(" "), [text]);
+
+    const wordRanges = useMemo(
+      () =>
+        words.map((_, i) => {
           const start = i / words.length;
           const end = start + 1 / words.length;
-          return (
-            <Word key={i} range={[start, end]} progress={progress}>
+          return [start, end] as [number, number];
+        }),
+      [words]
+    );
+
+    return (
+      <motion.div
+        style={{ y: scrollY }}
+        className="z-30 p-4 h-screen flex items-center text-colors-text"
+      >
+        <p className="flex flex-wrap">
+          {words.map((word, i) => (
+            <Word key={i} range={wordRanges[i]} progress={progress}>
               {word}
             </Word>
-          );
-        })}
-      </p>
-    </motion.div>
-  );
-};
+          ))}
+        </p>
+      </motion.div>
+    );
+  },
+  (prevProps, nextProps) => {
+    return (
+      prevProps.text === nextProps.text &&
+      prevProps.progress === nextProps.progress
+    );
+  }
+);
+
+OverlayCopy.displayName = "OverlayCopy";
 
 type WordProps = {
   children: React.ReactNode;
@@ -208,16 +239,31 @@ type WordProps = {
   progress: MotionValue<number>;
 };
 
-const Word: React.FC<WordProps> = ({ children, range, progress }) => {
-  const opacity = useTransform(progress, range, [0, 1]);
-  return (
-    <span className="mr-2 mt-2 2xl:mr-6 2xl:mt-3 relative font-bold text-4xl sm:text-5xl 2xl:text-7xl">
-      <span className="absolute opacity-20">{children}</span>
-      <motion.span style={{ opacity }} className="">
-        {children}
-      </motion.span>
-    </span>
-  );
-};
+const Word: React.FC<WordProps> = React.memo(
+  ({ children, range, progress }) => {
+    const renderCount = useRef(0);
+    renderCount.current += 1;
+
+    const opacity = useTransform(progress, range, [0, 1]);
+    return (
+      <span className="mr-2 mt-2 2xl:mr-6 2xl:mt-3 relative font-bold text-4xl sm:text-5xl 2xl:text-7xl">
+        <span className="absolute opacity-20">{children}</span>
+        <motion.span style={{ opacity }} className="">
+          {children}
+        </motion.span>
+      </span>
+    );
+  },
+  (prevProps, nextProps) => {
+    return (
+      prevProps.children === nextProps.children &&
+      prevProps.range[0] === nextProps.range[0] &&
+      prevProps.range[1] === nextProps.range[1] &&
+      prevProps.progress === nextProps.progress
+    );
+  }
+);
+
+Word.displayName = "Word";
 
 export default About;
