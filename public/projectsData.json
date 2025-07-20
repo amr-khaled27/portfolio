@@ -1,5 +1,25 @@
 [
   {
+    "title": "Planish",
+    "description": "An all-in-one planner for students to track tasks, deadlines, and events—powered by AI and built with Next.js and Firebase.",
+    "mainTags": ["latest!"],
+    "image": "/planish.png",
+    "link": "https://github.com/amr-khaled27/planish",
+    "demo": "https://planish.vercel.app/",
+    "tags": ["productivity", "ai", "nextjs", "firebase"],
+    "type": "web"
+  },
+  {
+    "title": "AI Millionaire Game",
+    "description": "A trivia game inspired by \"Who Wants to be a Millionaire\" built using Next.js, where users sign in, pick interests, and play AI-generated questions. Includes secure game logic and a competitive leaderboard.",
+    "mainTags": ["Game!"],
+    "image": "/million.png",
+    "link": "https://github.com/amr-khaled27/man-sayarba7-al-melyon",
+    "demo": "https://man-sayarba7-al-melyon.vercel.app/",
+    "tags": ["ai", "game", "leaderboard", "nextjs"],
+    "type": "web"
+  },
+  {
     "title": "Ecommerce Store",
     "description": "A Fullstack Ecommerce Store built using React, TypeScript, and Express, with many features like JWT authentication, Stripe payment, and more.",
     "mainTags": ["latest!"],
