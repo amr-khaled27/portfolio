@@ -22,7 +22,6 @@
   {
     "title": "Ecommerce Store",
     "description": "A Fullstack Ecommerce Store built using React, TypeScript, and Express, with many features like JWT authentication, Stripe payment, and more.",
-    "mainTags": ["latest!"],
     "image": "/watchstore.png",
     "link": "https://www.linkedin.com/posts/amr-khaled-74b936256_ecommerce-fullstack-react-activity-7298007243084455936-lzgY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD8ka6sBUtGvv-o2wwTW4m1qUM_tBmasP-M",
     "tags": ["ecommerce", "auth", "fullstack"],
