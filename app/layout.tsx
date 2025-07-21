@@ -28,7 +28,16 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ReactLenis root>
+      <ReactLenis
+        root
+        options={{
+          autoRaf: true,
+          lerp: 0.1,
+          duration: 1.2,
+          smoothWheel: true,
+          autoResize: true,
+        }}
+      >
         <body className={`${rubik.className} antialiased`}>{children}</body>
       </ReactLenis>
     </html>

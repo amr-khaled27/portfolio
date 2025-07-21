@@ -287,7 +287,6 @@ const TechStack = React.memo<TechStackProps>(
       }
 
       return () => {
-        console.log("⚡ TechStack cleanup started");
         Render.stop(render);
         Runner.stop(runner);
         World.clear(engine.world, false);
@@ -295,7 +294,6 @@ const TechStack = React.memo<TechStackProps>(
         render.canvas.remove();
         render.textures = {};
         window.removeEventListener("resize", handleResize);
-        console.log("⚡ TechStack cleanup completed");
       };
     }, [numberOfPolygons, technology, walled, wrap]);
 
