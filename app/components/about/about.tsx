@@ -159,7 +159,7 @@ const About = () => {
             <h3 className="text-4xl 2xl:text-6xl text-colors-text p-4 flex flex-col z-30 bg-black/50 backdrop-blur-sm w-screen font-bold text-center absolute left-1/2 -translate-x-1/2 pointer-events-none">
               My Tech Stack
               <span className="text-lg xl:text-2xl font-normal hidden sm:inline">
-                Feel free to play around with them!
+                Feel free To Drag Them Around!
               </span>
             </h3>
             <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
